@@ -180,17 +180,17 @@ void IronBoot::RegisterTransmitCallback(TransmitDataFunc_t func)
 
 void IronBoot::Timer1msHandler()
 {
-    //if (this->step != BlStep_t::Idle)
-    //{
-    //    if (++this->TimeoutCnt >= 10000)
-    //    {
-    //        this->step = BlStep_t::Timeout;
-    //    }
-    //}
-    //else
-    //{
-    //    this->TimeoutCnt = 0;
-    //}
+    if (this->step != BlStep_t::Idle)
+    {
+       if (++this->TimeoutCnt >= 10000)
+       {
+           this->step = BlStep_t::Timeout;
+       }
+    }
+    else
+    {
+       this->TimeoutCnt = 0;
+    }
 
     switch (this->errStep)
     {
